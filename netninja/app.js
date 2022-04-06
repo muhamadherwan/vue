@@ -6,6 +6,7 @@ const app = Vue.createApp({
   // data
   data() {
     return {
+      showBooks: true,
       title: "the final empire",
       author: "Daigo Saito",
       age: 43,
@@ -17,6 +18,10 @@ const app = Vue.createApp({
     changeTitle(title) {
       //   this.title = "2jz powa";
       this.title = title;
+    },
+
+    toggleShowBooks() {
+      this.showBooks = !this.showBooks;
     },
   },
 });

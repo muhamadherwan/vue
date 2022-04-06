@@ -9,15 +9,24 @@
   <body>
     <h1>Holla Vue</h1>
     <div id="app">
-      <p>{{title}} - {{author}} - {{age}}</p>
+      <div v-if="showBooks">
+        <p>{{title}} - {{author}} - {{age}}</p>
 
-      <button v-on:click="age++">Increase age</button>
-      <button @click="age--">Decrase age</button>
+        <!-- <button v-on:click="age++">Increase age</button>
+      <button @click="age--">Decrase age</button> -->
 
-      <!-- <button @click="title = '2jz'">Change title</button> -->
-      <!-- <div @click="title = '2jz'">Change title</div> -->
+        <!-- <button @click="title = '2jz'">Change title</button> -->
+        <!-- <div @click="title = '2jz'">Change title</div> -->
 
-      <div @click="changeTitle('2jz')">Change title</div>
+        <!-- <div @click="changeTitle('2jz')">Change title</div> -->
+      </div>
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide books</span>
+        <!-- <span v-if="!showBooks">Show books</span> -->
+        <span v-else>Show books</span>
+      </button>
+
+      <div v-show="showBooks">currently showing books</div>
     </div>
     <script src="app.js"></script>
   </body>

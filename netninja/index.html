@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en-US">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Vue basic</title>
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <h1>Holla Vue</h1>
+    <div id="app">
+      <p>{{title}} - {{author}} - {{age}}</p>
+
+      <button v-on:click="age++">Increase age</button>
+      <button @click="age--">Decrase age</button>
+
+      <!-- <button @click="title = '2jz'">Change title</button> -->
+      <!-- <div @click="title = '2jz'">Change title</div> -->
+
+      <div @click="changeTitle('2jz')">Change title</div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

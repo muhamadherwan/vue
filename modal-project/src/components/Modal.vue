@@ -1,9 +1,10 @@
 <template>
-    <div class="backdrop">
+    <div class="backdrop" @click.self="closeModal">
         <div class="modal" :class="{ sale: theme === 'sale' }">
             <slot></slot>
             <div class="actions">
                 <slot name="links"></slot>
+                <slot name="links2"></slot>
             </div>
         </div>
     </div>
@@ -12,7 +13,12 @@
 <script>
 export default {
     // prop from parent component
-    props:['theme']
+    props:['theme'],
+    methods: {
+        closeModal(){
+            this.$emit('close')
+        }
+    }
 }
 </script>
 

@@ -11,7 +11,19 @@
       <p>this is a description!</p>
     </Modal>
   </div>
-  <button @click.alt="toggleModal">open modal (alt)</button>
+
+  <div v-if="showModal2">
+    <Modal theme="sale" @close="toggleModal2">
+      <template v-slot:links2>
+        <a href="#">Modal2 link</a>
+      </template>
+      <h1>Modal2</h1>
+      <p>this is modal 2</p>
+    </Modal>
+  </div>
+
+  <button @click.alt="toggleModal">open modal (alt)</button>&nbsp;
+  <button @click="toggleModal2">open modal 2</button>
 </template>
 
 <script>
@@ -24,10 +36,11 @@ export default {
   components: { Modal },
   data() {
     return {
-      title: "My first vue app",
-      header: "Sign Up!",
-      text: "this is a description.",
-      showModal: false
+      // title: "My first vue app",
+      // header: "Sign Up!",
+      // text: "this is a description.",
+      showModal: false,
+      showModal2: false
     }
   },
   methods: {
@@ -38,6 +51,9 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModal2(){
+      this.showModal2 = !this.showModal2
     }
   }
 }

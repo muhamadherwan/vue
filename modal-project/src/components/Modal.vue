@@ -1,8 +1,10 @@
 <template>
     <div class="backdrop">
         <div class="modal" :class="{ sale: theme === 'sale' }">
-            <h1>{{ header }}</h1>
-            <p>{{ text }}</p>
+            <slot></slot>
+            <div class="actions">
+                <slot name="links"></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -10,7 +12,7 @@
 <script>
 export default {
     // prop from parent component
-    props:['header', 'text', 'theme']
+    props:['theme']
 }
 </script>
 
@@ -20,7 +22,7 @@ export default {
     padding: 200px;
     margin: 100px auto;
     background: white;
-    border-radius: 10px;
+   border-radius: 10px;
 }
 .backdrop {
     top: 0;
@@ -44,5 +46,26 @@ export default {
 }
 .modal.sale h1 {
     color: white;
+}
+.modal .actions {
+    text-align: center;
+    margin: 30px 0 10px 0;
+}
+
+.modal .actions a {
+    color: #333;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.modal.sale .actions {
+    color:white;
+}
+
+.modal.sale .actions a {
+    color:white;
 }
 </style>

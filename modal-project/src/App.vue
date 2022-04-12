@@ -1,7 +1,8 @@
 <template>
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
-  <div v-if="showModal">
+
+  <teleport to=".modals" v-if="showModal">
     <Modal theme="" @close="toggleModal">
       <template v-slot:links>
         <a href="#">sign up now</a>
@@ -10,9 +11,9 @@
       <h1>Promotion!</h1>
       <p>this is a description!</p>
     </Modal>
-  </div>
+  </teleport>
 
-  <div v-if="showModal2">
+  <teleport to=".modals" v-if="showModal2">
     <Modal theme="sale" @close="toggleModal2">
       <template v-slot:links2>
         <a href="#">Modal2 link</a>
@@ -20,7 +21,7 @@
       <h1>Modal2</h1>
       <p>this is modal 2</p>
     </Modal>
-  </div>
+  </teleport>
 
   <button @click.alt="toggleModal">open modal (alt)</button>&nbsp;
   <button @click="toggleModal2">open modal 2</button>
@@ -36,7 +37,7 @@ export default {
   components: { Modal },
   data() {
     return {
-      // title: "My first vue app",
+      title: "My first vue app",
       // header: "Sign Up!",
       // text: "this is a description.",
       showModal: false,
@@ -60,7 +61,7 @@ export default {
 </script>
 
 <style>
-#app {
+#app, .modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

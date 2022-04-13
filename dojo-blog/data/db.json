@@ -1,0 +1,24 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "welcome to the blog",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            "tags": [
+                "laravel",
+                "vue",
+                "news"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Laravel, vue and tailswind",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            "tags": [
+                "laravel",
+                "vue",
+                "news"
+            ]
+        }
+    ]
+}

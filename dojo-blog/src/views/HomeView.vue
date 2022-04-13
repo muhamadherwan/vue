@@ -24,7 +24,7 @@ export default {
       p.value.classList.add('test')
       p.value.textContent = 'hello, ayu'
     }
-    return {name, age, handleClick, p }
+    return {name, age, handleClick, p}
   }
 }
 </script>

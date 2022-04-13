@@ -1,7 +1,10 @@
 <template>
   <div class="home">home</div>
-  <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
+  <p>My name is {{ name }} and my age is {{ age }}</p>
+  <button @click="age++">Add age</button>
   <button @click="handleClick">Click me</button>
+  <input type="text" v-model="name">
+
 </template>
 
 <script>
@@ -11,20 +14,16 @@ export default {
   name: 'HomeView',
   // composation api function
   setup() {
-    console.log(this) 
 
-    // template ref
-    const p = ref(null)
-
-    let name = 'mario'
-    let age = 30
+    const name = ref('mario')
+    const age = ref(30)
 
     const handleClick = () => {
-      console.log(p.value)
-      p.value.classList.add('test')
-      p.value.textContent = 'hello, ayu'
+      name.value = 'Ayu'
+      age.value = 41
     }
-    return {name, age, handleClick, p }
+
+    return {name, age, handleClick }
   }
 }
 </script>

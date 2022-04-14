@@ -1,30 +1,40 @@
 <template>
 <div class="container">
 <Header title="Todo List"/>
+<Tasks :tasks="tasks" />
 </div>
 
 </template>
 
 <script>
 import Header from './components/Header.vue'
-
+import Tasks from './components/Tasks.vue'
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Tasks
+  },
+
+  data() {
+    return {
+      tasks:[]
+    }
+  },
+
+  // livecycle methods
+  created() {
+    this.tasks = [
+      { id:1, text: 'Doctor Appointment', day: 'April 14 at 2:30pm', reminder: true },
+      { id:2, text: 'Teacher Appointment', day: 'April 14 at 4:30pm', reminder: true },
+      { id:3, text: 'Shopping', day: 'April 15 at 2:30pm', reminder: false }
+    ]
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 * {

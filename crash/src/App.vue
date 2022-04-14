@@ -1,6 +1,9 @@
 <template>
 <div class="container">
-<Header title="Todo List"/>
+<Header title="Todo List"
+  @toggle-add-task="toggleAddTask" 
+  :showAddTask = "showAddTask"
+/>
 <div v-show="showAddTask">
   <AddTask @add-task="addTask" />
 </div>
@@ -29,7 +32,7 @@ export default {
   data() {
     return {
       tasks:[],
-      showAddTask : true
+      showAddTask : false
     }
   },
 
@@ -47,6 +50,9 @@ export default {
     },
     addTask(newTask) {
       this.tasks = [...this.tasks, newTask]
+    },
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask
     }
   },
 

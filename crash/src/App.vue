@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 <Header title="Todo List"/>
-<Tasks :tasks="tasks" />
+<Tasks :tasks="tasks" @delete-task="deleteTask" />
 </div>
 
 </template>
@@ -19,6 +19,14 @@ export default {
   data() {
     return {
       tasks:[]
+    }
+  },
+
+  methods: {
+    deleteTask(id) {
+      if (confirm('Remove this tasks?')) {
+          this.tasks = this.tasks.filter( (task) => task.id !== id )     
+      }
     }
   },
 

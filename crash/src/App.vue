@@ -1,7 +1,14 @@
 <template>
 <div class="container">
 <Header title="Todo List"/>
-<Tasks :tasks="tasks" @delete-task="deleteTask" @toggle-reminder="toggleReminder" />
+<div v-show="showAddTask">
+  <AddTask @add-task="addTask" />
+</div>
+
+<Tasks 
+  :tasks="tasks" 
+  @delete-task="deleteTask" 
+  @toggle-reminder="toggleReminder" />
 </div>
 
 </template>
@@ -9,16 +16,20 @@
 <script>
 import Header from './components/Header.vue'
 import Tasks from './components/Tasks.vue'
+import AddTask from './components/AddTask.vue'
+
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks
+    Tasks,
+    AddTask
   },
 
   data() {
     return {
-      tasks:[]
+      tasks:[],
+      showAddTask : true
     }
   },
 
@@ -33,6 +44,9 @@ export default {
         task.id === id ? { ...task, reminder: !task.reminder }
         : task
       )
+    },
+    addTask(newTask) {
+      this.tasks = [...this.tasks, newTask]
     }
   },
 

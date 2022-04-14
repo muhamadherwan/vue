@@ -53,16 +53,34 @@ export default {
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
-    }
+    },
+
+    // fetch data from json server
+    async fetchTasks() {
+      const res = await fetch('http://localhost:5000/tasks')
+      
+      const data = await res.json()
+
+      return data
+    },
+    // fetch single task from json server
+    async fetchTask(id) {
+      const res = await fetch(`http://localhost:5000/tasks/${id}`)
+      
+      const data = await res.json()
+
+      return data
+    },
   },
 
   // livecycle methods
-  created() {
-    this.tasks = [
-      { id:1, text: 'Doctor Appointment', day: 'April 14 at 2:30pm', reminder: true },
-      { id:2, text: 'Teacher Appointment', day: 'April 14 at 4:30pm', reminder: true },
-      { id:3, text: 'Shopping', day: 'April 15 at 2:30pm', reminder: false }
-    ]
+  async created() {
+    this.tasks = await this.fetchTasks()
+    // this.tasks = [
+    //   { id:1, text: 'Doctor Appointment', day: 'April 14 at 2:30pm', reminder: true },
+    //   { id:2, text: 'Teacher Appointment', day: 'April 14 at 4:30pm', reminder: true },
+    //   { id:3, text: 'Shopping', day: 'April 15 at 2:30pm', reminder: false }
+    // ]
   }
 
 }

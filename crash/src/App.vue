@@ -1,16 +1,18 @@
 <template>
 <div class="container">
-<h1>hola</h1>
+<Header title="Todo List"/>
 </div>
 
 </template>
 
 <script>
-
+import Header from './components/Header.vue'
 
 export default {
   name: 'App',
-  components: {}
+  components: {
+    Header
+  }
 }
 </script>
 
